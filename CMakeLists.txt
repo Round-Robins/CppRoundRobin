@@ -4,5 +4,7 @@ project(CppRoundRobin)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES src/RoundRobin.cpp src/RoundRobin.h)
-add_library(CppRoundRobin ${SOURCE_FILES})
+include_directories(src)
+
+add_subdirectory(src)
+add_subdirectory(test)
