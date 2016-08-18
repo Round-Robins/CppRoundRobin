@@ -4,5 +4,5 @@ project(CppRoundRobin)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES main.cpp)
-add_executable(CppRoundRobin ${SOURCE_FILES})
+set(SOURCE_FILES src/RoundRobin.cpp src/RoundRobin.h)
+add_library(CppRoundRobin ${SOURCE_FILES})
