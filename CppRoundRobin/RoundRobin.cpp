@@ -18,6 +18,7 @@ bool RoundRobin::Run(void) {
     // Never plan to leave this loop unless there is a problem
     for (;;) {
         if (isTimerFired) {
+            isTimerFired = false;
             for each (RoundRobinTaskHooks task in Tasks)
             {
                 task.IncrementCounter();

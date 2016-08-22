@@ -18,12 +18,12 @@ namespace CppRoundRobin {
 
         bool Run(void);
 
-		void TimerFired(void);
+        void TimerFired(void);
 
         void SetPeriod(int period);
 
     private:
-		bool isTimerFired;
+        bool isTimerFired;
 
         int schedulerPeriod;
 
