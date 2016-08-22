@@ -53,4 +53,5 @@ void RoundRobin::SetPeriod(int period)
 RoundRobin::RoundRobinTaskHooks::RoundRobinTaskHooks(std::shared_ptr<RoundRobinTask> task)
 {
     this->task = task;
+    counter = static_cast<int>(0);
 }
