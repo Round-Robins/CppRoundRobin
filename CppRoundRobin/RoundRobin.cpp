@@ -6,14 +6,20 @@
 
 using namespace CppRoundRobin;
 
-bool RoundRobin::AddTask(void) {
-    return false;
+bool CppRoundRobin::RoundRobin::AddTask(std::shared_ptr<RoundRobinTask> task)
+{
+	Tasks.push_back(task);
+	return true;
 }
 
-bool RoundRobin::DeleteTask(void) {
-    return false;
-}
 
 bool RoundRobin::Run(void) {
-    return false;
+
+	for (;;) {
+		for each (std::shared_ptr<RoundRobinTask> task in Tasks)
+		{
+			task.get()->Task();
+		}
+	}
+    return true;
 }

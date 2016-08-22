@@ -113,9 +113,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="RoundRobin.cpp" />
+    <ClCompile Include="RoundRobinTask.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RoundRobin.h" />
+    <ClInclude Include="RoundRobinTask.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
