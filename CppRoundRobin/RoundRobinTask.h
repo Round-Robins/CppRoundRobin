@@ -1,3 +1,5 @@
+#ifndef CPPROUNDROBIN_ROUNDROBINTASK_H_
+#define CPPROUNDROBIN_ROUNDROBINTASK_H_
 
 namespace CppRoundRobin
 {
@@ -15,3 +17,5 @@ namespace CppRoundRobin
         int period;
     };
 }
+
+#endif
