@@ -3,6 +3,11 @@
 
 using namespace CppRoundRobin;
 
+CppRoundRobin::RoundRobin::RoundRobin(bool offsetTasks)
+{
+    this->offsetTasks = offsetTasks;
+}
+
 bool RoundRobin::AddTask(std::shared_ptr<RoundRobinTask> task)
 {
     if (task.get()->Period() >= schedulerPeriod)
@@ -28,6 +33,12 @@ bool RoundRobin::Run(void) {
                 if (task.Counter() >= task.TaskPeriod() / schedulerPeriod) {
                     task.ResetCounter();
                     task.RunTask();
+
+                    // Only allow one task to run per period
+                    if (offsetTasks)
+                    {
+                        break;
+                    }
 
                 }
             }
