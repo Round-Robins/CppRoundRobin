@@ -6,20 +6,48 @@
 
 using namespace CppRoundRobin;
 
-bool CppRoundRobin::RoundRobin::AddTask(std::shared_ptr<RoundRobinTask> task)
+bool RoundRobin::AddTask(std::shared_ptr<RoundRobinTask> task)
 {
-	Tasks.push_back(task);
-	return true;
+    Tasks.push_back(RoundRobinTaskHooks(task));
+    return true;
 }
 
 
 bool RoundRobin::Run(void) {
 
-	for (;;) {
-		for each (std::shared_ptr<RoundRobinTask> task in Tasks)
-		{
-			task.get()->Task();
-		}
-	}
+    // Never plan to leave this loop unless there is a problem
+    for (;;) {
+        if (isTimerFired) {
+            for each (RoundRobinTaskHooks task in Tasks)
+            {
+                task.IncrementCounter();
+
+                if (task.Counter() >= task.TaskPeriod() / schedulerPeriod) {
+                    task.ResetCounter();
+                    task.RunTask();
+
+                }
+            }
+        }
+        else {
+            // This is considered the idle task, haven't decided how to handle this yet for user implementation
+        }
+    }
     return true;
+}
+
+void RoundRobin::TimerFired(void)
+{
+    this->isTimerFired = true;
+}
+
+void RoundRobin::SetPeriod(int period)
+{
+    schedulerPeriod = period;
+}
+
+
+RoundRobin::RoundRobinTaskHooks::RoundRobinTaskHooks(std::shared_ptr<RoundRobinTask> task)
+{
+    this->task = task;
 }

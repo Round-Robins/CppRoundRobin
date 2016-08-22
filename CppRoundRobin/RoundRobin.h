@@ -18,9 +18,37 @@ namespace CppRoundRobin {
 
         bool Run(void);
 
+		void TimerFired(void);
+
+        void SetPeriod(int period);
 
     private:
-        std::vector<std::shared_ptr<RoundRobinTask>> Tasks;
+		bool isTimerFired;
+
+        int schedulerPeriod;
+
+        class RoundRobinTaskHooks {
+        public:
+
+            RoundRobinTaskHooks(std::shared_ptr<RoundRobinTask> task);
+
+            int Counter(void) { return counter; }
+
+            void ResetCounter(void) { counter = 0; }
+
+            void IncrementCounter(void) { counter++; }
+
+            void RunTask(void) { task.get()->Task(); }
+
+            int TaskPeriod(void) { return task.get()->Period(); }
+
+        private:
+            int counter;
+
+            std::shared_ptr<RoundRobinTask> task;
+        };
+
+        std::vector<RoundRobinTaskHooks> Tasks;
     };
 }
 

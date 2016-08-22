@@ -2,11 +2,13 @@
 
 using namespace CppRoundRobin;
 
-RoundRobinTask::RoundRobinTask()
+RoundRobinTask::RoundRobinTask(int period)
 {
+    this->period = period;
 }
 
 
 RoundRobinTask::~RoundRobinTask()
 {
 }
+
