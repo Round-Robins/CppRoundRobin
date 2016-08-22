@@ -5,8 +5,13 @@ using namespace CppRoundRobin;
 
 bool RoundRobin::AddTask(std::shared_ptr<RoundRobinTask> task)
 {
-    Tasks.push_back(RoundRobinTaskHooks(task));
-    return true;
+    if (task.get()->Period() >= schedulerPeriod)
+    {
+        Tasks.push_back(RoundRobinTaskHooks(task));
+        return true;
+    }
+    
+    return false;
 }
 
 
