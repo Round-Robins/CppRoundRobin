@@ -31,7 +31,7 @@ bool RoundRobin::Run(void) {
             // This is considered the idle task, haven't decided how to handle this yet for user implementation
         }
     }
-    return true;
+    return false;
 }
 
 void RoundRobin::TimerFired(void)
