@@ -1,19 +1,24 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
-#include <RoundRobin.h>
+#include <RoundRobinTask.h>
+#include "EmptyRoundRobinTask.h"
+
+using namespace CppRoundRobin;
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace CppRoundRobinTest
 {		
-	TEST_CLASS(UnitTest1)
+	TEST_CLASS(RoundRobinTests)
 	{
 	public:
 		
-		TEST_METHOD(TestMethod1)
+		TEST_METHOD(DerivedClassPeriod)
 		{
-			// TODO: Your test code here
-		}
+            EmptyRoundRobinTask task(50);
+
+            Assert::AreEqual(task.Period(), 50);
+        }
 
 	};
 }
