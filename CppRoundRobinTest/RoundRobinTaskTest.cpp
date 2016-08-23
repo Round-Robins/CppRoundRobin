@@ -9,7 +9,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace CppRoundRobinTest
 {		
-	TEST_CLASS(RoundRobinTests)
+	TEST_CLASS(RoundRobinTaskTests)
 	{
 	public:
 		

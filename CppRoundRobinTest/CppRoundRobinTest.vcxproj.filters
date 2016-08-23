@@ -29,10 +29,10 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RoundRobinTest.cpp">
+    <ClCompile Include="EmptyRoundRobinTask.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EmptyRoundRobinTask.cpp">
+    <ClCompile Include="RoundRobinTaskTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
