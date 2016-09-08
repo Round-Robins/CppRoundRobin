@@ -9,7 +9,7 @@ namespace CppRoundRobin {
     class RoundRobin {
     public:
 
-        RoundRobin(bool offsetTasks, int schedulerPeriod);
+        RoundRobin(int schedulerPeriod);
 
         bool AddTask(std::shared_ptr<RoundRobinTask> task);
 
@@ -23,8 +23,6 @@ namespace CppRoundRobin {
         bool isTimerFired;
 
         int schedulerPeriod;
-
-        bool offsetTasks;
 
         class RoundRobinTaskHooks {
         public:

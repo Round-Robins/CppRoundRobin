@@ -2,9 +2,8 @@
 
 using namespace CppRoundRobin;
 
-RoundRobin::RoundRobin(bool offsetTasks, int schedulerPeriod)
+RoundRobin::RoundRobin(int schedulerPeriod)
 {
-    this->offsetTasks = offsetTasks;
     this->schedulerPeriod = schedulerPeriod;
 }
 
@@ -31,12 +30,6 @@ bool RoundRobin::Run(void) {
                 if (task.Counter() >= task.TaskPeriod() / schedulerPeriod) {
                     task.ResetCounter();
                     task.RunTask();
-
-                    // Only allow one task to run per period
-                    if (offsetTasks)
-                    {
-                        break;
-                    }
                 }
             }
         }
