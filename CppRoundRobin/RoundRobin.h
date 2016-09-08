@@ -29,15 +29,15 @@ namespace CppRoundRobin {
 
             RoundRobinTaskHooks(std::shared_ptr<RoundRobinTask> task);
 
-            int Counter(void) { return counter; }
+            int Counter(void) const { return counter; }
 
             void ResetCounter(void) { counter = 0; }
 
             void IncrementCounter(void) { counter++; }
 
-            void RunTask(void) { task.get()->Task(); }
+            void RunTask(void) const { task.get()->Task(); }
 
-            int TaskPeriod(void) { return task.get()->Period(); }
+            int TaskPeriod(void) const { return task.get()->Period(); }
 
         private:
             int counter;
