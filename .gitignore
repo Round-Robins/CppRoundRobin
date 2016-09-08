@@ -3,3 +3,4 @@ Release/
 packages/
 ipch/
 *.suo
+*.db
