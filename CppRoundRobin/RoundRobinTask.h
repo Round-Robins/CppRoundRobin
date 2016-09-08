@@ -7,12 +7,12 @@ namespace CppRoundRobin
     {
     public:
         RoundRobinTask(int period);
-        ~RoundRobinTask();
+        virtual ~RoundRobinTask();
 
         virtual void Task() = 0;
 
-        int Period() { return period; }
-         
+        int Period() const { return period; }
+
     private:
         int period;
     };
