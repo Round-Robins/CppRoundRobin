@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
-#include <RoundRobinTask.h>
+#include <RoundRobin.h>
 
 using namespace CppRoundRobin;
 
@@ -12,10 +12,24 @@ namespace CppRoundRobinTest
     {
     public:
 
-        TEST_METHOD(Setup)
+        TEST_METHOD(GetPeriod)
         {
+            RoundRobin robin(1);
 
+            Assert::AreEqual(robin.GetPeriod(), 1);
         }
 
+        TEST_METHOD(SetPeriod)
+        {
+            RoundRobin robin(5);
+            robin.SetPeriod(6);
+
+            Assert::AreEqual(robin.GetPeriod(), 6);
+        }
+
+        TEST_METHOD(RunSingleTask)
+        {
+            RoundRobin robin(1);
+        }
     };
 }

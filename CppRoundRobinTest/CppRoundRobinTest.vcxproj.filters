@@ -24,6 +24,12 @@
     <ClInclude Include="EmptyRoundRobinTask.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="NotifyCallRoundRobinTask.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ExceptionThrowingRoundRobinTask.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -36,6 +42,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RoundRobinTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NotifyCallRoundRobinTask.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ExceptionThrowingRoundRobinTask.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
