@@ -2,6 +2,7 @@
 #include <vector>
 #include <memory>
 #include "RoundRobinTask.h"
+#include <windows.h>
 
 namespace CppRoundRobin {
     class RoundRobin {
@@ -23,6 +24,25 @@ namespace CppRoundRobin {
         bool isTimerFired;
 
         int schedulerPeriod;
+
+    protected:
+        class RoundRobinTimer
+        {
+        public:
+            RoundRobinTimer();
+            ~RoundRobinTimer();
+
+            void Start(RoundRobin* robin);
+
+            void End();
+
+        private:
+
+            HANDLE hTimer;
+            HANDLE hTimerQueue;
+        };
+
+        RoundRobinTimer taskTimer;
 
         class RoundRobinTaskHooks {
         public:
