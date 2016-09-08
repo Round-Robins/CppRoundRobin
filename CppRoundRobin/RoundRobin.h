@@ -1,9 +1,7 @@
+#pragma once
 #include <vector>
 #include <memory>
 #include "RoundRobinTask.h"
-
-#ifndef CPPROUNDROBIN_ROUNDROBIN_H
-#define CPPROUNDROBIN_ROUNDROBIN_H
 
 namespace CppRoundRobin {
     class RoundRobin {
@@ -50,5 +48,3 @@ namespace CppRoundRobin {
         std::vector<RoundRobinTaskHooks> Tasks;
     };
 }
-
-#endif //CPPROUNDROBIN_ROUNDROBIN_H
