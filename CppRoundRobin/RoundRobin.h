@@ -1,4 +1,3 @@
-
 #include <vector>
 #include <memory>
 #include "RoundRobinTask.h"
@@ -7,12 +6,10 @@
 #define CPPROUNDROBIN_ROUNDROBIN_H
 
 namespace CppRoundRobin {
-
     class RoundRobin {
-
     public:
 
-        RoundRobin(bool offsetTasks);
+        RoundRobin(bool offsetTasks, int schedulerPeriod);
 
         bool AddTask(std::shared_ptr<RoundRobinTask> task);
 

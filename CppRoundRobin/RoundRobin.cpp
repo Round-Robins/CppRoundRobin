@@ -1,11 +1,11 @@
-
 #include "RoundRobin.h"
 
 using namespace CppRoundRobin;
 
-CppRoundRobin::RoundRobin::RoundRobin(bool offsetTasks)
+RoundRobin::RoundRobin(bool offsetTasks, int schedulerPeriod)
 {
     this->offsetTasks = offsetTasks;
+    this->schedulerPeriod = schedulerPeriod;
 }
 
 bool RoundRobin::AddTask(std::shared_ptr<RoundRobinTask> task)
@@ -15,13 +15,11 @@ bool RoundRobin::AddTask(std::shared_ptr<RoundRobinTask> task)
         Tasks.push_back(RoundRobinTaskHooks(task));
         return true;
     }
-    
+
     return false;
 }
 
-
 bool RoundRobin::Run(void) {
-
     // Never plan to leave this loop unless there is a problem
     for (;;) {
         if (isTimerFired) {
@@ -39,7 +37,6 @@ bool RoundRobin::Run(void) {
                     {
                         break;
                     }
-
                 }
             }
         }
@@ -59,7 +56,6 @@ void RoundRobin::SetPeriod(int period)
 {
     schedulerPeriod = period;
 }
-
 
 RoundRobin::RoundRobinTaskHooks::RoundRobinTaskHooks(std::shared_ptr<RoundRobinTask> task)
 {
