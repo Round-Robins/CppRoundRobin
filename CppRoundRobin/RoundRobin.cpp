@@ -45,11 +45,6 @@ void RoundRobin::TimerFired(void)
     this->isTimerFired = true;
 }
 
-void RoundRobin::SetPeriod(int period)
-{
-    schedulerPeriod = period;
-}
-
 RoundRobin::RoundRobinTaskHooks::RoundRobinTaskHooks(std::shared_ptr<RoundRobinTask> task)
 {
     this->task = task;

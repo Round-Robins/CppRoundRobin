@@ -17,7 +17,9 @@ namespace CppRoundRobin {
 
         void TimerFired(void);
 
-        void SetPeriod(int period);
+        void SetPeriod(int period) { schedulerPeriod = period; }
+
+        int GetPeriod(void) const { return schedulerPeriod; }
 
     private:
         bool isTimerFired;
