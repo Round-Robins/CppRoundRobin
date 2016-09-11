@@ -5,66 +5,66 @@
 #include <windows.h>
 
 namespace CppRoundRobin {
-    class RoundRobin {
-    public:
+	class RoundRobin {
+	public:
 
-        RoundRobin(int schedulerPeriod);
+		RoundRobin(int schedulerPeriod);
 
-        bool AddTask(std::shared_ptr<RoundRobinTask> task);
+		bool AddTask(std::shared_ptr<RoundRobinTask> task);
 
-        bool Run(void);
+		bool Run(void);
 
-        void TimerFired(void);
+		void TimerFired(void);
 
-        void SetPeriod(int period) { schedulerPeriod = period; }
+		void SetPeriod(int period) { schedulerPeriod = period; }
 
-        int GetPeriod(void) const { return schedulerPeriod; }
+		int GetPeriod(void) const { return schedulerPeriod; }
 
-    private:
-        bool isTimerFired;
+	private:
+		bool isTimerFired;
 
-        int schedulerPeriod;
+		int schedulerPeriod;
 
-    protected:
-        class RoundRobinTimer
-        {
-        public:
-            RoundRobinTimer();
-            ~RoundRobinTimer();
+	protected:
+		class RoundRobinTimer
+		{
+		public:
+			RoundRobinTimer();
+			~RoundRobinTimer();
 
-            void Start(RoundRobin* robin);
+			void Start(RoundRobin* robin);
 
-            void End();
+			void End();
 
-        private:
+		private:
 
-            HANDLE hTimer;
-            HANDLE hTimerQueue;
-        };
+			HANDLE hTimer;
+			HANDLE hTimerQueue;
+		};
 
-        RoundRobinTimer taskTimer;
+		RoundRobinTimer taskTimer;
 
-        class RoundRobinTaskHooks {
-        public:
+		class RoundRobinTaskHooks {
+		public:
 
-            RoundRobinTaskHooks(std::shared_ptr<RoundRobinTask> task);
+			RoundRobinTaskHooks(std::shared_ptr<RoundRobinTask> task);
 
-            int Counter(void) const { return counter; }
+			int Counter(void) const { return counter; }
 
-            void ResetCounter(void) { counter = 0; }
+			void ResetCounter(void) { counter = 0; }
 
-            void IncrementCounter(void) { counter++; }
+			void IncrementCounter(void) { ++counter; }
 
-            void RunTask(void) const { task.get()->Task(); }
+			void RunTask(void) const { task.get()->Task(); }
 
-            int TaskPeriod(void) const { return task.get()->Period(); }
+			int TaskPeriod(void) const { return task.get()->Period(); }
 
-        private:
-            int counter;
+		private:
+			int counter;
 
-            std::shared_ptr<RoundRobinTask> task;
-        };
+			std::shared_ptr<RoundRobinTask> task;
+		};
 
-        std::vector<RoundRobinTaskHooks> Tasks;
-    };
+		std::vector<RoundRobinTaskHooks> Tasks;
+	};
 }
