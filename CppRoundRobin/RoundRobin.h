@@ -10,6 +10,8 @@ namespace CppRoundRobin {
 
 		RoundRobin(int schedulerPeriod);
 
+		virtual ~RoundRobin();
+
 		bool AddTask(std::shared_ptr<RoundRobinTask> task);
 
 		void Run();
