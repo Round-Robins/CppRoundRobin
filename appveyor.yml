@@ -8,4 +8,4 @@ build:
   verbosity: normal
 test:
 	assemblies:
-		- CppRoundRobinTest.dll
+	- CppRoundRobinTest.dll
