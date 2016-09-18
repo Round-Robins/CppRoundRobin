@@ -19,28 +19,31 @@ bool RoundRobin::AddTask(std::shared_ptr<RoundRobinTask> task)
 	return false;
 }
 
-bool RoundRobin::Run(void) {
+void RoundRobin::Run(void) {
 	taskTimer.Start(this);
 	// Never plan to leave this loop unless there is a problem
-	for (;;) {
-		if (isTimerFired) {
-			isTimerFired = false;
-			for (auto &task : Tasks)
-			{
-				task.IncrementCounter();
+	try {
+		for (;;) {
+			if (isTimerFired) {
+				isTimerFired = false;
+				for (auto &task : Tasks)
+				{
+					task.IncrementCounter();
 
-				if (task.Counter() >= task.TaskPeriod() / schedulerPeriod) {
-					task.ResetCounter();
-					task.RunTask();
+					if (task.Counter() >= task.TaskPeriod() / schedulerPeriod) {
+						task.ResetCounter();
+						task.RunTask();
+					}
 				}
 			}
-		}
-		else {
-			// This is considered the idle task, haven't decided how to handle this yet for user implementation
+			else {
+				// This is considered the idle task, haven't decided how to handle this yet for user implementation
+			}
 		}
 	}
-	taskTimer.End();
-	return false;
+	catch (...) {
+		taskTimer.End();
+	}
 }
 
 void RoundRobin::TimerFired(void)

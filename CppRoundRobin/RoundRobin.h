@@ -12,7 +12,7 @@ namespace CppRoundRobin {
 
 		bool AddTask(std::shared_ptr<RoundRobinTask> task);
 
-		bool Run(void);
+		void Run();
 
 		void TimerFired(void);
 
