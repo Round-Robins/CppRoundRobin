@@ -37,7 +37,7 @@ void RoundRobin::Run(void) {
 				}
 			}
 			else {
-				// This is considered the idle task, haven't decided how to handle this yet for user implementation
+				IdleTask();
 			}
 		}
 	}

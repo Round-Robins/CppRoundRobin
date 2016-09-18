@@ -20,6 +20,9 @@ namespace CppRoundRobin {
 
 		int GetPeriod(void) const { return schedulerPeriod; }
 
+	protected:
+		virtual void IdleTask() {}
+
 	private:
 		bool isTimerFired;
 
