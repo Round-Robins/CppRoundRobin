@@ -25,7 +25,7 @@ bool RoundRobin::Run(void) {
 	for (;;) {
 		if (isTimerFired) {
 			isTimerFired = false;
-			for each (RoundRobinTaskHooks task in Tasks)
+			for (auto &task : Tasks)
 			{
 				task.IncrementCounter();
 
