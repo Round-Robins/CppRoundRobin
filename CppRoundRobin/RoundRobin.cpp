@@ -8,6 +8,10 @@ RoundRobin::RoundRobin(int schedulerPeriod)
 	isTimerFired = false;
 }
 
+CppRoundRobin::RoundRobin::~RoundRobin()
+{
+}
+
 bool RoundRobin::AddTask(std::shared_ptr<RoundRobinTask> task)
 {
 	if (task.get()->Period() >= schedulerPeriod)
