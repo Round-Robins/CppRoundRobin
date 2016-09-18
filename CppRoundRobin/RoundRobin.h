@@ -34,7 +34,7 @@ namespace CppRoundRobin {
 
 			void Start(RoundRobin* robin);
 
-			void End();
+			void End() const;
 
 		private:
 

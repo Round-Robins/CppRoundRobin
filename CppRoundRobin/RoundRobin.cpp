@@ -78,10 +78,10 @@ void CALLBACK TimerRoutine(PVOID lpParam, BOOLEAN TimerOrWaitFired)
 void RoundRobin::RoundRobinTimer::Start(RoundRobin* robin)
 {
 	hTimerQueue = CreateTimerQueue();
-	CreateTimerQueueTimer(&hTimer, hTimerQueue, (WAITORTIMERCALLBACK)TimerRoutine, robin, robin->GetPeriod(), robin->GetPeriod(), 0);
+	CreateTimerQueueTimer(&hTimer, hTimerQueue, static_cast<WAITORTIMERCALLBACK>(TimerRoutine), robin, robin->GetPeriod(), robin->GetPeriod(), 0);
 }
 
-void RoundRobin::RoundRobinTimer::End()
+void RoundRobin::RoundRobinTimer::End() const
 {
 	DeleteTimerQueue(hTimerQueue);
 }
