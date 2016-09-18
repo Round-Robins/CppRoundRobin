@@ -7,5 +7,5 @@ before_build:
 build:
   verbosity: normal
 test:
-	assemblies:
-	- CppRoundRobinTest.dll
+  assemblies:
+  - CppRoundRobinTest.dll
