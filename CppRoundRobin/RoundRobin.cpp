@@ -43,6 +43,7 @@ void RoundRobin::Run(void) {
 	}
 	catch (...) {
 		taskTimer.End();
+		throw;
 	}
 }
 
